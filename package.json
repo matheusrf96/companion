@@ -1,0 +1,22 @@
+{
+  "name": "go-websocket",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "live-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matheusrf96/go-websocket.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matheusrf96/go-websocket/issues"
+  },
+  "homepage": "https://github.com/matheusrf96/go-websocket#readme",
+  "dependencies": {
+    "live-server": "^1.2.1"
+  }
+}

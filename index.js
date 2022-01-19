@@ -1,20 +1,25 @@
 
 const socket = new WebSocket("ws://localhost:8000/ws")
-console.log("Attempting WebSocket Connection...")
+
+const data = {
+    referrer: document.referrer,
+    cookie: document.cookie,
+    userAgent: window.navigator.userAgent,
+    screen: {
+        availHeight: screen.availHeight,
+        availWidth: screen.availWidth,
+        height: screen.height,
+        width: screen.width,
+        colorDepth: screen.colorDepth,
+        pixelDepth: screen.pixelDepth,
+    },
+    navigator: {
+        hardwareConcurrency: navigator.hardwareConcurrency,
+        language: navigator.language,
+        languages: navigator.languages,
+    },
+}
 
 socket.onopen = () => {
-    console.log("Successfully connected")
-    socket.send("Msg from the client")
-}
-
-socket.onclose = (event) => {
-    console.log("Socket closed connection", event)
-}
-
-socket.onmessage = (msg) => {
-    console.log(msg)
-}
-
-socket.onerror = (err) => {
-    console.error("Socket error", err)
+    socket.send(JSON.stringify(data))
 }

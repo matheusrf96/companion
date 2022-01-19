@@ -44,6 +44,7 @@ func wsEndpoint(w http.ResponseWriter, r *http.Request) {
 	}
 
 	log.Println("Client successfully connected")
+	log.Println(r.RemoteAddr, r.UserAgent())
 	reader(ws)
 }
 

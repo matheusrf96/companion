@@ -5,10 +5,15 @@ function uuidv4() {
     );
 }
 
+if (!sessionStorage.getItem('uuid')){
+    sessionStorage.setItem('uuid', uuidv4())
+}
+
 const socket = new WebSocket("ws://localhost:8000/ws")
+const uuid = sessionStorage.getItem('uuid')
 
 const data = {
-    uuid: uuidv4(),
+    uuid: uuid,
     referrer: document.referrer,
     cookie: document.cookie,
     userAgent: window.navigator.userAgent,

@@ -1,11 +1,13 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"log"
 	"net/http"
 
 	"github.com/gorilla/websocket"
+	"github.com/matheusrf96/go-webserver/src/models"
 )
 
 var upgrader = websocket.Upgrader{
@@ -20,20 +22,27 @@ func homePage(w http.ResponseWriter, r *http.Request) {
 
 func reader(conn *websocket.Conn) {
 	for {
-		messageType, p, err := conn.ReadMessage()
+		messageType, data, err := conn.ReadMessage()
 		if err != nil {
 			log.Println(err)
 			return
 		}
 
-		log.Println(string(p))
+		var access models.Access
 
-		err = conn.WriteMessage(messageType, p)
+		err = json.Unmarshal(data, &access)
 		if err != nil {
 			log.Println(err)
 			return
 		}
 
+		log.Println(access)
+
+		err = conn.WriteMessage(messageType, data)
+		if err != nil {
+			log.Println(err)
+			return
+		}
 	}
 }
 

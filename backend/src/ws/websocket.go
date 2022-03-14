@@ -7,6 +7,7 @@ import (
 	"net/http"
 
 	"github.com/gorilla/websocket"
+	"github.com/matheusrf96/go-webserver/backend/src/db"
 	"github.com/matheusrf96/go-webserver/backend/src/models"
 )
 
@@ -23,6 +24,13 @@ func reader(conn *websocket.Conn) {
 			log.Println(err)
 			return
 		}
+
+		db, err := db.Connect()
+		if err != nil {
+			log.Println(err)
+			return
+		}
+		defer db.Close()
 
 		var access models.Access
 
@@ -48,7 +56,6 @@ func WsEndpoint(w http.ResponseWriter, r *http.Request) {
 		log.Println(err)
 	}
 
-	fmt.Println()
 	log.Println(r.RemoteAddr, r.UserAgent())
 
 	reader(ws)

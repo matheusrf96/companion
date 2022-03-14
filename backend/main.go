@@ -5,16 +5,25 @@ import (
 	"log"
 	"net/http"
 
+	"github.com/gorilla/mux"
+	"github.com/matheusrf96/go-webserver/backend/src/config"
 	"github.com/matheusrf96/go-webserver/backend/src/ws"
 )
 
-func setupRoutes() {
-	http.HandleFunc("/", ws.HomePage)
-	http.HandleFunc("/ws", ws.WsEndpoint)
+func setupRoutes(r *mux.Router) *mux.Router {
+	r.HandleFunc("/", ws.HomePage)
+	r.HandleFunc("/ws", ws.WsEndpoint)
+
+	return r
 }
 
 func main() {
-	fmt.Println("Go websocket")
-	setupRoutes()
-	log.Fatal(http.ListenAndServe(":8000", nil))
+	config.Load()
+
+	log.Printf("Go Websocket running at the port :%d", config.Port)
+
+	r := mux.NewRouter()
+	r = setupRoutes(r)
+
+	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", config.Port), r))
 }

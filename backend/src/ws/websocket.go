@@ -2,7 +2,6 @@ package ws
 
 import (
 	"encoding/json"
-	"fmt"
 	"log"
 	"net/http"
 
@@ -59,8 +58,4 @@ func WsEndpoint(w http.ResponseWriter, r *http.Request) {
 	log.Println(r.RemoteAddr, r.UserAgent())
 
 	reader(ws)
-}
-
-func HomePage(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Ok")
 }

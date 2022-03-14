@@ -11,7 +11,7 @@ import (
 )
 
 func setupRoutes(r *mux.Router) *mux.Router {
-	r.HandleFunc("/", ws.HomePage)
+	r.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) { fmt.Fprintf(w, "Ok") })
 	r.HandleFunc("/ws", ws.WsEndpoint)
 
 	return r

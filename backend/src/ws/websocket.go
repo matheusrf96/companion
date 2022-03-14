@@ -7,7 +7,7 @@ import (
 	"net/http"
 
 	"github.com/gorilla/websocket"
-	"github.com/matheusrf96/go-webserver/src/models"
+	"github.com/matheusrf96/go-webserver/backend/src/models"
 )
 
 var upgrader = websocket.Upgrader{
@@ -48,8 +48,9 @@ func WsEndpoint(w http.ResponseWriter, r *http.Request) {
 		log.Println(err)
 	}
 
-	log.Println("Client successfully connected")
+	fmt.Println()
 	log.Println(r.RemoteAddr, r.UserAgent())
+
 	reader(ws)
 }
 

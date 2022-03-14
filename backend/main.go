@@ -5,7 +5,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/matheusrf96/go-webserver/src/ws"
+	"github.com/matheusrf96/go-webserver/backend/backend/src/ws"
 )
 
 func setupRoutes() {

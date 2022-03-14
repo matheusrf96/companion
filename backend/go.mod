@@ -1,4 +1,4 @@
-module github.com/matheusrf96/go-webserver
+module github.com/matheusrf96/go-webserver/backend
 
 go 1.14
 

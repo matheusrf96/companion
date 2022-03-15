@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "uglifyjs -c -m --source-map -o dist/cmp.js index.js"
+    "build": "uglifyjs -c -m --source-map -o dist/cmp.js index.js",
+    "start": "live-server --port=5000"
   },
   "repository": {
     "type": "git",
@@ -16,9 +17,9 @@
   },
   "homepage": "https://github.com/matheusrf96/go-websocket#readme",
   "dependencies": {
+    "live-server": "^1.2.1",
     "uglify-js": "^3.15.3"
   },
-  "devDependencies": {},
   "keywords": [],
   "description": ""
 }

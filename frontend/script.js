@@ -1,12 +1,14 @@
 // c = window
 // o = document
 // m = 'HASH'
+// r = Handler script creation
+// a = Document "script" tag
+// d = Hidden input with ecommerce hash creation
+// e = Document "body" tag
 
 (function(c,o,m,r,a,d,e){
-c.cmp=c.cmp||function(){(c.cmp.q=c.cmp.q||[]).push(arguments)};  // Set cmp query as request arguments
-r=o.createElement('input');r.type='hidden';r.id='eh';r.value=m;  // Create the following input `<input type="hidden" id="eh" value="{m}" />`
-d=o.createElement('script');d.async=1;d.src='http://localhost:8000/cmp';  // Create the following script `<script src="http://localhost:8000/cmp"></script>`
-e=o.getElementsByTagName('body')[0];e.appendChild(r);  // Insert input "eh" into body
-a=o.getElementsByTagName('script')[0];a.parentNode.insertBefore(d, a);  // Insert created script into DOM before this script
+r=o.createElement('script');r.async=1;r.src='http://localhost:8000/cmp'+c.location.search;  // Create script calling the handler with URL params
+a=o.getElementsByTagName('script')[0];a.parentNode.insertBefore(r, a);  // Insert handler js before this script
+d=o.createElement('input');d.type='hidden';d.id='eh';d.value=m  // Create a hidden input with ecommerce hash value
+e=o.getElementsByTagName('body')[0];e.appendChild(d);  // Insert ecommerce hash input into body
 })(window,document,'<HASH>');
-

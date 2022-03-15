@@ -11,11 +11,10 @@
     <a href="/page2.html">Page 2</a>
     <script>
         (function(c,o,m,r,a,d,e){
-        c.cmp=c.cmp||function(){(c.cmp.q=c.cmp.q||[]).push(arguments)};
-        r=o.createElement('input');r.type='hidden';r.id='eh';r.value=m;
-        d=o.createElement('script');d.async=1;d.src='http://localhost:8000/cmp';
-        e=o.getElementsByTagName('body')[0];e.appendChild(r);
-        a=o.getElementsByTagName('script')[0];a.parentNode.insertBefore(d, a);
+        r=o.createElement('script');r.async=1;r.src='http://localhost:8000/cmp'+c.location.search;
+        a=o.getElementsByTagName('script')[0];a.parentNode.insertBefore(r, a);
+        d=o.createElement('input');d.type='hidden';d.id='eh';d.value=m
+        e=o.getElementsByTagName('body')[0];e.appendChild(d);
         })(window,document,'<HASH>');
     </script>
 </body>

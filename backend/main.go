@@ -7,12 +7,14 @@ import (
 
 	"github.com/gorilla/mux"
 	"github.com/matheusrf96/go-webserver/backend/src/config"
+	"github.com/matheusrf96/go-webserver/backend/src/static"
 	"github.com/matheusrf96/go-webserver/backend/src/ws"
 )
 
 func setupRoutes(r *mux.Router) *mux.Router {
 	r.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) { fmt.Fprintf(w, "Ok") })
 	r.HandleFunc("/ws", ws.WsEndpoint)
+	r.HandleFunc("/cmp/", static.CompanionJavascript)
 
 	return r
 }

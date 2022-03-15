@@ -9,12 +9,12 @@
 <body>
     Script Template
     <script>
-        (function(c,m,p,a,n,i,o){
+        (function(c,o,m,r,a,d,e){
         c.cmp=c.cmp||function(){(c.cmp.q=c.cmp.q||[]).push(arguments)};
-        a=m.createElement('input');a.type='hidden';a.id='eh';a.value=p;
-        i=m.createElement('script');i.async=1;i.src='http://localhost:8000/cmp';
-        o=m.getElementsByTagName('body')[0];o.appendChild(a);
-        n=m.getElementsByTagName('script')[0];n.parentNode.insertBefore(i, n);
+        r=o.createElement('input');r.type='hidden';r.id='eh';r.value=m;
+        d=o.createElement('script');d.async=1;d.src='http://localhost:8000/cmp';
+        e=o.getElementsByTagName('body')[0];e.appendChild(r);
+        a=o.getElementsByTagName('script')[0];a.parentNode.insertBefore(d, a);
         })(window,document,'<HASH>');
     </script>
 </body>

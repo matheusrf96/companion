@@ -11,9 +11,16 @@ if (!sessionStorage.getItem('uuid')){
 
 const socket = new WebSocket("ws://localhost:8000/ws")
 const uuid = sessionStorage.getItem('uuid')
+const ecommerceHashInput = document.getElementById('eh')
+let ecommerceHash = null
+
+if (ecommerceHashInput) {
+    ecommerceHash = ecommerceHashInput.value
+}
 
 const data = {
     uuid: uuid,
+    ecommerceHash: ecommerceHash,
     referrer: document.referrer,
     cookie: document.cookie,
     userAgent: window.navigator.userAgent,

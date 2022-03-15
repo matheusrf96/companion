@@ -9,11 +9,13 @@
 <body>
     Script Template
     <script>
-        (function(c,m,p){
+        (function(c,m,p,a,n,i,o){
         c.cmp=c.cmp||function(){(c.cmp.q=c.cmp.q||[]).push(arguments)};
-        var o=m.createElement('script');o.async=1;o.src='http://localhost:8000/cmp/?eid='+p;
-        var n=m.getElementsByTagName('script')[0];n.parentNode.insertBefore(o, n);})
-        (window,document,'HASH');
+        a=m.createElement('input');a.type='hidden';a.id='eh';a.value=p;
+        i=m.createElement('script');i.async=1;i.src='http://localhost:8000/cmp';
+        o=m.getElementsByTagName('body')[0];o.appendChild(a);
+        n=m.getElementsByTagName('script')[0];n.parentNode.insertBefore(i, n);
+        })(window,document,'<HASH>');
     </script>
 </body>
 </html>

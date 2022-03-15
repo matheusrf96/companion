@@ -1,12 +1,13 @@
 package models
 
 type Access struct {
-	Uuid      string    `json:"uuid"`
-	Referrer  string    `json:"referrer"`
-	Cookie    string    `json:"cookie"`
-	UserAgent string    `json:"userAgent"`
-	Screen    Screen    `json:"screen"`
-	Navigator Navigator `json:"navigator"`
+	Uuid          string    `json:"uuid"`
+	EcommerceHash string    `json:"ecommerceHash"`
+	Referrer      string    `json:"referrer"`
+	Cookie        string    `json:"cookie"`
+	UserAgent     string    `json:"userAgent"`
+	Screen        Screen    `json:"screen"`
+	Navigator     Navigator `json:"navigator"`
 }
 
 type Screen struct {

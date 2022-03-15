@@ -3,10 +3,15 @@ CREATE DATABASE IF NOT EXISTS companion;
 CREATE TABLE accesses (
     id SERIAL
     , uuid VARCHAR(64) NOT NULL
+    , source_id INT
+    , utm_source VARCHAR(64)
+    , utm_medium VARCHAR(64)
+    , tags VARCHAR(32)[]
+    , created_at TIMESTAMP WITHOUT TIME ZONE DEFAULT (NOW() AT TIME ZONE 'UTC')
     , referrer VARCHAR(256) NOT NULL
     , cookie TEXT
     , user_agent TEXT NOT NULL
-    , created_at TIMESTAMP WITHOUT TIME ZONE DEFAULT (NOW() AT TIME ZONE 'UTC')
+    , query VARCHAR(256)
     , os VARCHAR(64)
     , browser VARCHAR(64)
     , screen JSON

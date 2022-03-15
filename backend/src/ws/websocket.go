@@ -1,13 +1,11 @@
 package ws
 
 import (
-	"encoding/json"
 	"log"
 	"net/http"
 
 	"github.com/gorilla/websocket"
-	"github.com/matheusrf96/go-webserver/backend/src/db"
-	"github.com/matheusrf96/go-webserver/backend/src/models"
+	"github.com/matheusrf96/go-webserver/backend/src/controllers"
 )
 
 var upgrader = websocket.Upgrader{
@@ -24,22 +22,7 @@ func reader(conn *websocket.Conn) {
 			return
 		}
 
-		db, err := db.Connect()
-		if err != nil {
-			log.Println(err)
-			return
-		}
-		defer db.Close()
-
-		var access models.Access
-
-		err = json.Unmarshal(data, &access)
-		if err != nil {
-			log.Println(err)
-			return
-		}
-
-		log.Println(access)
+		controllers.HandleAccess(data)
 
 		err = conn.WriteMessage(messageType, data)
 		if err != nil {
@@ -54,8 +37,6 @@ func WsEndpoint(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Println(err)
 	}
-
-	log.Println(r.RemoteAddr, r.UserAgent())
 
 	reader(ws)
 }

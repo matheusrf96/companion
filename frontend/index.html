@@ -4,10 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Script</title>
 </head>
 <body>
+    Script Template
     <a href="/page2.html">Page 2</a>
-    <script src="dist/cmp.js"></script>
+    <script>
+        (function(c,o,m,r,a,d,e){
+        c.cmp=c.cmp||function(){(c.cmp.q=c.cmp.q||[]).push(arguments)};
+        r=o.createElement('input');r.type='hidden';r.id='eh';r.value=m;
+        d=o.createElement('script');d.async=1;d.src='http://localhost:8000/cmp';
+        e=o.getElementsByTagName('body')[0];e.appendChild(r);
+        a=o.getElementsByTagName('script')[0];a.parentNode.insertBefore(d, a);
+        })(window,document,'<HASH>');
+    </script>
 </body>
 </html>

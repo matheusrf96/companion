@@ -75,11 +75,11 @@ e=o.getElementsByTagName('body')[0];e.appendChild(d);
 ## Handler:
 O handler é um arquivo intermediário entre o frontend e o backend do projeto.
 
-Servido pelo backend, ele é responsável pela separação dos dados úteis do projeto, gerenciamento de sessão de acesso e separação/validação dos parâmetros críticos vindos da URL.
+Servido pelo backend e com uma chamada renderizada pelo frontend, ele é responsável pela separação dos dados úteis do projeto, gerenciamento de sessão de acesso e separação/validação dos parâmetros críticos vindos da URL.
 
 Com todos os dados prontos, estes são mandados para o backend no formato JSON através de um websocket.
 
-#### Estrutura do Handler:
+### Estrutura do Handler:
 
 ```
 |-- dist/
@@ -103,6 +103,8 @@ Com todos os dados prontos, estes são mandados para o backend no formato JSON a
 O Companion (backend) é a parte responsável por todo o tratamento dos dados e interação com o banco de dados.
 
 Há um websocket responsável pelo recebimento dos dados enviados pelo handler.
+
+### Estrutura do Backend
 
 ```bash
 |-- sql

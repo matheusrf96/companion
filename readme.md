@@ -81,7 +81,7 @@ Com todos os dados prontos, estes são mandados para o backend no formato JSON a
 
 ### Estrutura do Handler:
 
-```
+```bash
 |-- dist/
     |-- cmp.js
     |-- cmp.js.map

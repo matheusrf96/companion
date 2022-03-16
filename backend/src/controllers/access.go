@@ -6,6 +6,7 @@ import (
 
 	"github.com/matheusrf96/go-webserver/backend/src/db"
 	"github.com/matheusrf96/go-webserver/backend/src/models"
+	"github.com/matheusrf96/go-webserver/backend/src/repositories"
 )
 
 func HandleAccess(data []byte) {
@@ -24,12 +25,18 @@ func HandleAccess(data []byte) {
 		return
 	}
 
-	// repo := repositories.NewAccessRepository(db)
-	// err = repo.CreateDayTable()
-	// if err != nil {
-	// 	log.Println(err)
-	// 	return
-	// }
+	err = access.ParseUserAgent()
+	if err != nil {
+		log.Println(err)
+		return
+	}
+
+	repo := repositories.NewAccessRepository(db)
+	err = repo.Save(access)
+	if err != nil {
+		log.Println(err)
+		return
+	}
 
 	log.Println(access)
 

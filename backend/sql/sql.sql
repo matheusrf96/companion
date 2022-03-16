@@ -12,6 +12,7 @@ CREATE TABLE accesses (
     , cookie TEXT
     , user_agent TEXT NOT NULL
     , query VARCHAR(256)
+    , device VARCHAR(64)
     , os VARCHAR(64)
     , browser VARCHAR(64)
     , screen JSON

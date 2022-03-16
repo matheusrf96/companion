@@ -4,25 +4,37 @@
 Microsserviço de API para captura de acessos em um determinado cliente. O backend do projeto é escrito em Go e o frontend é escrito em JavaScript puro.
 
 ## Instalação e Execução:
-- Criação do arquivo .env no diretório backend com as seguintes variáveis: `DB_DATABASE`, `DB_USER`, `DB_PASSWORD`, `DB_HOST` e `DB_PORT`
+Criação do arquivo .env no diretório backend com as seguintes variáveis: `DB_DATABASE`, `DB_USER`, `DB_PASSWORD`, `DB_HOST` e `DB_PORT`
 
-- Instalação das dependências pelo arquivo Makefile na raiz do projeto:
-`make setup`
+Instalação das dependências pelo arquivo Makefile na raiz do projeto:
+```bash
+make setup
+```
 
-- Execução do backend:
-`make run`
+Execução do backend:
+```bash
+make run
+```
 
-- Build do front e backend:
-`make build`
+Build do front e backend:
+```bash
+make build
+```
 
-- Execução do binário do backend:
-`make run-build`
+Execução do binário do backend:
+```bash
+make run-build
+```
 
-- Execução do frontend para teste do script de captura de acessos:
-`cd frontend && npm run start`
+Execução do frontend para teste do script de captura de acessos:
+```bash
+cd frontend && npm run start
+```
 
-- Execução do handler para teste do intermediário entre o frontend e o backend
-`cd handler && npm run start`
+Execução do handler para teste do intermediário entre o frontend e o backend
+```bash
+cd handler && npm run start
+```
 
 ## Estrutura do Projeto:
 O projeto é dividido em três partes fundamentais: Companion (backend), Comrade (frontend) e um handler intermediário.

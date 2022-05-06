@@ -4,6 +4,7 @@ CREATE TABLE accesses (
     id SERIAL
     , uuid VARCHAR(64) NOT NULL
     , source_id INT
+    , ecommerce_id INT
     , utm_source VARCHAR(64)
     , utm_medium VARCHAR(64)
     , tags VARCHAR(32)[]

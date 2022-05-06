@@ -39,6 +39,4 @@ func HandleAccess(data []byte) {
 	}
 
 	log.Println(access)
-
-	return
 }

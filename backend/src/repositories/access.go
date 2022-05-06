@@ -44,6 +44,15 @@ func (repo Access) createDayTable() error {
 	return nil
 }
 
+func (repo Access) getEcommerceId(ecommerceHash string) int16 {
+	switch ecommerceHash {
+	case "<HASH>":
+		return 1
+	default:
+		return 0
+	}
+}
+
 func (repo Access) Save(access models.Access) error {
 	err := repo.createDayTable()
 	if err != nil {
@@ -56,6 +65,7 @@ func (repo Access) Save(access models.Access) error {
 		INSERT INTO %s (
 			uuid
 			, source_id
+			, ecommerce_id
 			, utm_source
 			, utm_medium
 			, tags
@@ -70,7 +80,7 @@ func (repo Access) Save(access models.Access) error {
 			, navigator
 		) VALUES (
 			$1, $2, $3, $4, $5, $6, $7, $8, $9,
-			$10, $11, $12, $13, $14
+			$10, $11, $12, $13, $14, $15
 		)
 	`, tableName))
 	if err != nil {
@@ -89,7 +99,7 @@ func (repo Access) Save(access models.Access) error {
 	}
 
 	_, err = statement.Exec(
-		&access.Uuid, &access.DetailData.SourceId, &access.DetailData.UtmSource,
+		&access.Uuid, &access.DetailData.SourceId, repo.getEcommerceId(access.EcommerceHash), &access.DetailData.UtmSource,
 		&access.DetailData.UtmMedium, pq.Array(&access.DetailData.Tags),
 		&access.Referrer, &access.Cookie, &access.UserAgent, &access.Query,
 		&access.Device, &access.OS, &access.Browser, screenData, navigatorData,

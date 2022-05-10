@@ -1,5 +1,5 @@
 {
-  "name": "go-websocket",
+  "name": "companion",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/matheusrf96/go-websocket.git"
+    "url": "git+https://github.com/matheusrf96/companion.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/matheusrf96/go-websocket/issues"
+    "url": "https://github.com/matheusrf96/companion/issues"
   },
-  "homepage": "https://github.com/matheusrf96/go-websocket#readme",
+  "homepage": "https://github.com/matheusrf96/companion#readme",
   "dependencies": {
     "live-server": "^1.2.1",
     "uglify-js": "^3.15.3"

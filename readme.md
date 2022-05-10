@@ -1,4 +1,4 @@
-# go-websocket
+# Companion
 
 ## Resumo:
 Microsserviço de API para captura de acessos em um determinado cliente. O backend do projeto é escrito em Go e o frontend é escrito em JavaScript puro.
